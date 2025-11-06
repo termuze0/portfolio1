@@ -10,7 +10,7 @@ interface Achievement {
   id: number;
   title: string;
   description: string;
-  icon: JSX.Element;
+  icon: React.ReactNode;
   year: string;
   type: "award" | "certificate" | "milestone" | "project";
   image?: string;

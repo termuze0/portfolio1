@@ -39,12 +39,12 @@ const Navbar = () => {
     { name: 'Home', href: '/#home', id: 'home' },
     { name: 'About', href: '/#about', id: 'about' },
     { name: 'Projects', href: '/#projects', id: 'projects' },
-    { name: 'Blog', href: '/blog', id: 'blog' },
+    { name: 'Blog', href: '/#blog', id: 'blog' },
     { name: 'Achievements', href: '/#timeline', id: 'timeline' },
     { name: 'Contact', href: '/#contact', id: 'contact' },
   ];
 
-  // Dynamic text color class
+  
   const textColor = isScrolled ? 'text-gray-900' : 'text-white';
   const linkColor = isScrolled
     ? 'text-gray-600 hover:text-gray-900'
@@ -61,7 +61,7 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
-        {/* Logo */}
+        
         <Link href="/" className="flex items-center space-x-2" onClick={closeMenu}>
   <Image
     src={logo}
@@ -82,7 +82,7 @@ const Navbar = () => {
 </Link>
 
 
-        {/* Desktop Navigation */}
+       
         <div className="hidden md:flex items-center space-x-8">
           {navItems.map((item) => {
             const isActive = activeSection === item.id || pathname === item.href;
@@ -103,23 +103,24 @@ const Navbar = () => {
           })}
         </div>
 
-        {/* Download Resume Button - Desktop */}
-        <div className="hidden md:flex items-center">
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`px-4 py-2 rounded-md transition-all font-medium ${
-              isScrolled
-                ? 'bg-blue-600 hover:bg-blue-700 text-white'
-                : 'bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30'
-            }`}
-          >
-            Download Resume
-          </a>
-        </div>
+       
+<div className="hidden md:flex items-center">
+  <a
+    href="https://drive.google.com/file/d/1XhY5izIW442ySn-rzmFyQP0CRD2BLH4n/view?usp=drive_link"
+    target="_blank"
+    rel="noopener noreferrer"
+    className={`px-4 py-2 rounded-md transition-all font-medium ${
+      isScrolled
+        ? 'bg-blue-600 hover:bg-blue-700 text-white'
+        : 'bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30'
+    }`}
+  >
+    Download Resume
+  </a>
+</div>
 
-        {/* Mobile Menu Button */}
+
+     
         <div className="md:hidden flex items-center">
           <button
             onClick={toggleMenu}
@@ -141,7 +142,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <div
         className={`md:hidden fixed top-16 left-0 w-full h-full bg-white transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : 'translate-x-full'

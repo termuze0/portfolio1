@@ -1,7 +1,16 @@
 "use client";
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, Instagram } from "lucide-react";
+import { useState, ChangeEvent, FormEvent } from "react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Github,
+  Linkedin,
+  Twitter,
+  Instagram,
+} from "lucide-react";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -11,11 +20,15 @@ export default function ContactSection() {
   });
   const [status, setStatus] = useState("");
 
-  const handleChange = (e: any) => {
+  // ✅ Strongly type ChangeEvent for input and textarea
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: any) => {
+  // ✅ Strongly type FormEvent for form submission
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("Sending...");
     setTimeout(() => {
@@ -29,7 +42,7 @@ export default function ContactSection() {
       id="contact"
       className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-20 px-6 md:px-16"
     >
-      
+      {/* Background animation */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.1 }}
@@ -37,7 +50,7 @@ export default function ContactSection() {
         className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1),transparent)] z-0"
       />
 
-      
+      {/* Header */}
       <motion.div
         initial={{ y: -100, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
@@ -48,12 +61,13 @@ export default function ContactSection() {
           Get In <span className="text-blue-400">Touch</span>
         </h2>
         <p className="max-w-2xl mx-auto text-gray-300 mb-16">
-          I’m always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+          I’m always open to discussing new projects, creative ideas, or
+          opportunities to be part of your visions.
         </p>
       </motion.div>
 
       <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
-        
+        {/* Contact Info */}
         <motion.div
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
@@ -77,7 +91,7 @@ export default function ContactSection() {
             <p>DireDawa, Ethiopia</p>
           </div>
 
-          
+          {/* Social Links */}
           <div className="flex gap-6 mt-8">
             {[
               { icon: Github, href: "https://github.com/termuze0" },
@@ -100,7 +114,7 @@ export default function ContactSection() {
           </div>
         </motion.div>
 
-        
+        {/* Contact Form */}
         <motion.form
           onSubmit={handleSubmit}
           initial={{ x: 100, opacity: 0 }}
@@ -190,7 +204,7 @@ export default function ContactSection() {
         </motion.form>
       </div>
 
-     
+      {/* Bottom wave */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
         <svg
           className="relative block w-[calc(120%+1.3px)] h-[80px]"

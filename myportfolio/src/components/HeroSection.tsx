@@ -8,7 +8,7 @@ interface SocialLink {
   platform: string;
   url: string;
   ariaLabel: string;
-  icon: JSX.Element;
+  icon: React.ReactNode;
 }
 
 interface HeroSectionProps {
@@ -66,7 +66,7 @@ const HeroSection = ({
         <div className={`flex flex-col space-y-6 px-4 md:px-12 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="space-y-4">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 dark:text-white">
-              Hi, I'm <span className="text-blue-600 dark:text-blue-400">{name}</span>
+              Hi, I&apos;m <span className="text-blue-600 dark:text-blue-400">{name}</span>
             </h1>
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-700 dark:text-gray-300 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
               {title}
