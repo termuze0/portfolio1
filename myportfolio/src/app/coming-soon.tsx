@@ -14,28 +14,28 @@ export default function ComingSoonPage() {
   // Target launch date: May 19, 2026 at 13:00 UTC
   const targetDate = new Date("2026-05-19T13:00:00Z");
 
-  useEffect(() => {
-    const calculateTimeLeft = () => {
-      const now = new Date().getTime();
-      const difference = targetDate.getTime() - now;
+ useEffect(() => {
+  const targetDate = new Date("2026-05-19T07:00:00Z");
 
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((difference / 1000 / 60) % 60),
-          seconds: Math.floor((difference / 1000) % 60),
-        });
-      } else {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-      }
-    };
+  const calculateTimeLeft = () => {
+    const now = new Date().getTime();
+    const difference = targetDate.getTime() - now;
 
-    calculateTimeLeft();
-    const timer = setInterval(calculateTimeLeft, 1000);
-    return () => clearInterval(timer);
-  }, [targetDate]);
+    if (difference > 0) {
+      setTimeLeft({
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((difference / 1000 / 60) % 60),
+        seconds: Math.floor((difference / 1000) % 60),
+      });
+    }
+  };
 
+  calculateTimeLeft();
+  const timer = setInterval(calculateTimeLeft, 1000);
+
+  return () => clearInterval(timer);
+}, []);
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -139,7 +139,7 @@ export default function ComingSoonPage() {
           variants={itemVariants}
           className="text-lg md:text-xl text-purple-200 max-w-2xl mb-12"
         >
-          Something amazing is in the works. I'm crafting a beautiful portfolio
+          Something amazing is in the works. I&apos;m crafting a beautiful portfolio
           to showcase my work and creativity. Stay tuned for the launch!
         </motion.p>
 
