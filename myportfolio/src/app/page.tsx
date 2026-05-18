@@ -5,17 +5,19 @@ import ProjectSection from "@/components/project";
 import BlogSection from "@/components/blog"
 import AchievementsSection from "@/components/Achievements";
 import ContactSection  from "@/components/contact"
+import ComingSoonPage from "./coming-soon";
 
 export default function Home() {
   return (
-    <div className="w-full">
-      <Navbar />
-      <HeroSection />
-      <AboutSection />
-      <ProjectSection />
-      <BlogSection />
-      <AchievementsSection />
-      <ContactSection />
-    </div>
+    // <div className="w-full">
+    //   <Navbar />
+    //   <HeroSection />
+    //   <AboutSection />
+    //   <ProjectSection />
+    //   <BlogSection />
+    //   <AchievementsSection />
+    //   <ContactSection />
+    // </div>
+     <ComingSoonPage />
   );
 }
