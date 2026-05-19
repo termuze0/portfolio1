@@ -3,6 +3,11 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
+const seededRandom = (seed: number) => {
+  const x = Math.sin(seed) * 10000;
+  return x - Math.floor(x);
+};
+
 export default function ComingSoonPage() {
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -11,15 +16,14 @@ export default function ComingSoonPage() {
     seconds: 0,
   });
 
-  // Target launch date: May 19, 2026 at 13:00 UTC
-  const targetDate = new Date("2026-05-19T13:00:00Z");
+  
 
- useEffect(() => {
-  const targetDate = new Date("2026-05-19T07:00:00Z");
+useEffect(() => {
+  const TARGET_DATE = new Date("2026-05-20T18:00:00Z").getTime();
 
   const calculateTimeLeft = () => {
-    const now = new Date().getTime();
-    const difference = targetDate.getTime() - now;
+    const now = Date.now();
+    const difference = TARGET_DATE - now;
 
     if (difference > 0) {
       setTimeLeft({
@@ -28,10 +32,18 @@ export default function ComingSoonPage() {
         minutes: Math.floor((difference / 1000 / 60) % 60),
         seconds: Math.floor((difference / 1000) % 60),
       });
+    } else {
+      setTimeLeft({
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+      });
     }
   };
 
   calculateTimeLeft();
+
   const timer = setInterval(calculateTimeLeft, 1000);
 
   return () => clearInterval(timer);
@@ -65,6 +77,31 @@ export default function ComingSoonPage() {
     },
   };
 
+  type Particle = {
+    width: number;
+    height: number;
+    top: string;
+    left: string;
+    duration: number;
+    delay: number;
+  };
+
+  const [particles, setParticles] = useState<Particle[]>([]);
+
+  useEffect(() => {
+    const generate = () =>
+      Array.from({ length: 50 }, (_, i) => ({
+        width: 2 + seededRandom(i + 1) * 4,
+        height: 2 + seededRandom(i + 2) * 4,
+        top: `${(seededRandom(i + 3) * 100).toFixed(4)}%`,
+        left: `${(seededRandom(i + 4) * 100).toFixed(4)}%`,
+        duration: 3 + seededRandom(i + 5) * 5,
+        delay: seededRandom(i + 6) * 5,
+      })) as Particle[];
+
+    setParticles(generate());
+  }, []);
+
   // Handle email notification
   const handleNotifyMe = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -83,24 +120,24 @@ export default function ComingSoonPage() {
     <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       {/* Animated Background Particles */}
       <div className="absolute inset-0 w-full h-full">
-        {[...Array(50)].map((_, i) => (
+        {particles.map((particle, i) => (
           <motion.div
             key={i}
             className="absolute bg-white/10 rounded-full"
             style={{
-              width: Math.random() * 4 + 2,
-              height: Math.random() * 4 + 2,
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
+              width: particle.width,
+              height: particle.height,
+              top: particle.top,
+              left: particle.left,
             }}
             animate={{
               y: [0, -30, 0],
               opacity: [0.2, 0.8, 0.2],
             }}
             transition={{
-              duration: Math.random() * 5 + 3,
+              duration: particle.duration,
               repeat: Infinity,
-              delay: Math.random() * 5,
+              delay: particle.delay,
             }}
           />
         ))}
@@ -119,11 +156,37 @@ export default function ComingSoonPage() {
         {/* Logo/Brand */}
         <motion.div variants={itemVariants} className="mb-8">
           <motion.div
-            animate={floatingAnimation}
-            className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-red-400 bg-clip-text text-transparent"
-          >
-            termuze.dev
-          </motion.div>
+  animate={floatingAnimation}
+  className="relative"
+>
+  <h1 className="text-6xl md:text-8xl font-black tracking-tight text-white">
+    <span className="text-white">termuze.</span>
+
+    <motion.span
+      className="
+        inline-block
+        bg-gradient-to-r
+        from-cyan-400
+        via-purple-400
+        to-pink-400
+        bg-clip-text
+        text-transparent
+      "
+      animate={{
+        opacity: [1, 0.7, 1],
+        scale: [1, 1.03, 1],
+      }}
+      transition={{
+        duration: 3,
+        repeat: Infinity,
+      }}
+    >
+      dev
+    </motion.span>
+  </h1>
+
+  <div className="absolute inset-0 blur-3xl opacity-20 bg-cyan-500 -z-10" />
+</motion.div>
         </motion.div>
 
         {/* Main Title */}
