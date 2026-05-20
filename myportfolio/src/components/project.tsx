@@ -149,7 +149,7 @@ export default function ProjectSection() {
           </AnimatePresence>
         </motion.div>
 
-        {/* Floating blobs for decoration */}
+       
         <motion.div
           className="absolute top-12 left-12 w-24 h-24 bg-indigo-500 rounded-full opacity-20 blur-2xl"
           animate={{ y: [0, 30, 0] }}

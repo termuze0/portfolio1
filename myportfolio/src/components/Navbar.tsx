@@ -44,32 +44,33 @@ const Navbar = () => {
     { name: 'Contact', href: '/#contact', id: 'contact' },
   ];
 
-  
-  const textColor = isScrolled ? 'text-gray-900' : 'text-white';
-  const linkColor = isScrolled
-    ? 'text-gray-600 hover:text-gray-900'
-    : 'text-white/90 hover:text-white';
-  const activeLinkColor = 'text-blue-600';
-  const logoTextColor = isScrolled ? 'text-gray-800 hover:text-blue-600' : 'text-white hover:text-blue-400';
+const linkColor = isScrolled
+  ? 'text-cyan-100 hover:text-lime-400 transition-colors duration-300'
+  : 'text-gray-300 hover:text-cyan-400 transition-colors duration-300';
 
-  return (
-    <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/90 backdrop-blur-sm shadow-md py-2'
-          : 'bg-transparent py-4'
-      }`}
-    >
+const activeLinkColor = 
+  'bg-gradient-to-r from-lime-400 via-cyan-500 to-blue-600 bg-clip-text text-transparent font-semibold';
+
+const logoTextColor = isScrolled
+  ? 'text-white hover:text-lime-300 transition-all duration-300'
+  : 'bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent hover:from-lime-400 hover:via-cyan-500 hover:to-blue-600 transition-all duration-400';
+
+
+return (
+  <nav
+    className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+  isScrolled
+    ? 'bg-black/95 backdrop-blur-2xl border-b border-purple-500/30 shadow-2xl shadow-purple-500/10 py-3'
+    : 'bg-black/90 backdrop-blur-md py-5'
+}`}
+
+  >
+
+
       <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
         
         <Link href="/" className="flex items-center space-x-2" onClick={closeMenu}>
-  <Image
-    src={logo}
-    alt="TM Logo"
-    width={40}
-    height={40}
-    className="object-contain transition-all duration-300"
-  />
+  
   <span
     className={`text-xl font-bold transition-colors duration-300 ${
       isScrolled
@@ -106,7 +107,7 @@ const Navbar = () => {
        
 <div className="hidden md:flex items-center">
   <a
-    href="https://drive.google.com/file/d/1XhY5izIW442ySn-rzmFyQP0CRD2BLH4n/view?usp=drive_link"
+    href="https://drive.google.com/file/d/1xWN77N5LyRJOHCUWMuPiZALS9GF_rHIT/view?usp=sharing"
     target="_blank"
     rel="noopener noreferrer"
     className={`px-4 py-2 rounded-md transition-all font-medium ${

@@ -80,7 +80,7 @@ export default function ContactSection() {
 
           <div className="flex items-center gap-4">
             <Mail className="text-blue-400 w-6 h-6" />
-            <p>wertman99999@gmail.com</p>
+            <p>contact@termuze.dev</p>
           </div>
           <div className="flex items-center gap-4">
             <Phone className="text-blue-400 w-6 h-6" />
@@ -95,7 +95,7 @@ export default function ContactSection() {
           <div className="flex gap-6 mt-8">
             {[
               { icon: Github, href: "https://github.com/termuze0" },
-              { icon: Linkedin, href: "https://linkedin.com/in/termuze" },
+              { icon: Linkedin, href: "https://linkedin.com/in/termuze8" },
               { icon: Twitter, href: "https://x.com/term2277" },
               { icon: Instagram, href: "https://instagram.com/termuze" },
             ].map(({ icon: Icon, href }, i) => (

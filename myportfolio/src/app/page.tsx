@@ -9,15 +9,15 @@ import ComingSoonPage from "./coming-soon";
 
 export default function Home() {
   return (
-    // <div className="w-full">
-    //   <Navbar />
-    //   <HeroSection />
-    //   <AboutSection />
-    //   <ProjectSection />
-    //   <BlogSection />
-    //   <AchievementsSection />
-    //   <ContactSection />
-    // </div>
-     <ComingSoonPage />
+    <div className="w-full">
+      <Navbar />
+      <HeroSection />
+      <AboutSection />
+      <ProjectSection />
+      <BlogSection />
+      <AchievementsSection />
+      <ContactSection />
+    </div>
+    //  <ComingSoonPage />
   );
 }
