@@ -4,18 +4,6 @@ import React from "react";
 import { motion, Variants } from "framer-motion";
 
 
-const skills = [
-  { name: "Next.js", level: 90 },
-  { name: "React", level: 92 },
-  { name: "TypeScript", level: 85 },
-  { name: "Tailwind CSS", level: 88 },
-  { name: "Node.js", level: 80 },
-  { name: "PostgreSQL", level: 75 },
-  { name: "Docker", level: 70 },
-  { name: "Git & GitHub", level: 90 },
-  { name: "UI/UX Design", level: 82 },
-  { name: "Framer Motion", level: 78 },
-];
 
 const technicalSkills = [
   {
@@ -75,61 +63,6 @@ function DecorativeBlobRight() {
       animate="animate"
       className="absolute -bottom-32 -right-40 w-96 h-96 bg-gradient-to-br from-cyan-300 via-blue-400 to-indigo-400 rounded-full blur-3xl opacity-25"
     />
-  );
-}
-
-function Skills() {
-  return (
-    <section className="mt-8">
-      <motion.h3
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="text-2xl font-bold text-slate-900 dark:text-white mb-6"
-      >
-        Technical Proficiency
-      </motion.h3>
-      <motion.p
-        variants={fadeUp}
-        custom={0.2}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="text-sm text-slate-600 dark:text-slate-400 mb-8"
-      >
-        A detailed breakdown of my expertise across various technologies and tools
-      </motion.p>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {skills.map((s, i) => (
-          <motion.div
-            key={s.name}
-            variants={fadeUp}
-            custom={i * 0.05}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="p-4 rounded-xl bg-white/70 dark:bg-slate-800/60 shadow-lg border border-slate-100 dark:border-slate-700"
-          >
-            <div className="flex justify-between text-sm font-medium text-slate-900 dark:text-white mb-2">
-              <span>{s.name}</span>
-              <span>{s.level}%</span>
-            </div>
-            <div className="h-3 w-full bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
-              <motion.div
-                variants={skillBar}
-                custom={s.level}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                className="h-full bg-gradient-to-r from-indigo-500 to-emerald-400 rounded-full"
-              />
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </section>
   );
 }
 
@@ -282,7 +215,7 @@ const SkillsSection = () => {
         </motion.div>
 
         <div className="space-y-16">
-          <Skills />
+         
           <TechnologyStack />
           <Expertise />
         </div>
