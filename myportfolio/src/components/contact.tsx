@@ -20,14 +20,12 @@ export default function ContactSection() {
   });
   const [status, setStatus] = useState("");
 
-  // ✅ Strongly type ChangeEvent for input and textarea
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // ✅ Strongly type FormEvent for form submission
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("Sending...");
@@ -42,7 +40,6 @@ export default function ContactSection() {
       id="contact"
       className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-20 px-6 md:px-16"
     >
-      {/* Background animation */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.1 }}
@@ -88,7 +85,7 @@ export default function ContactSection() {
           </div>
           <div className="flex items-center gap-4">
             <MapPin className="text-blue-400 w-6 h-6" />
-            <p>DireDawa, Ethiopia</p>
+            <p>Addis ababa, Ethiopia</p>
           </div>
 
           {/* Social Links */}
