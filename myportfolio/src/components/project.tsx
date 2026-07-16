@@ -17,34 +17,55 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
+    title: "RVHotel — Hotel Delivery System",
+    description:
+      "A Flutter-based food delivery app with a unified login for customers and hotel managers — browsing, cart, order tracking, reviews, and a manager dashboard with analytics and Telebirr payments.",
+    image: "/rv.png",
+    tech: ["Flutter", "Django", "PostgreSQL", "JWT", "Telebirr"],
+    link: "https://github.com/termuze0/rvhotel-app/releases/tag/v1.0.0",
+    github: "https://github.com/termuze0/rvhotel-app",
+  },
+  {
+    id: 2,
+    title: "AE Exam — Online Exam Platform",
+    description:
+      "An online exam platform with a React/TypeScript frontend and a Laravel + PostgreSQL backend, letting students take exams and instructors manage questions and results.",
+    image: "/ae-exam.png",
+    tech: ["React", "TypeScript", "Vite", "Laravel", "PostgreSQL"],
+    link: "https://ae-front.onrender.com/",
+    github: "https://github.com/termuze0/ae-front",
+  },
+  {
+    id: 3,
     title: "StudyGPT — AI-Powered Study App",
     description:
       "An interactive AI eBook platform built with Flutter and Django that helps students study and solve questions with real-time guidance.",
     image: "/studygpt.png",
     tech: ["Flutter", "Django", "OpenAI API", "Firebase"],
     link: "#",
-    github: "#",
+    github: "https://github.com/studygpt/api-demo",
   },
   {
-    id: 2,
+    id: 4,
     title: "TalentFlow — Hiring Platform",
     description:
       "A full-featured job matching platform that connects companies with top talent, featuring dashboards, filtering, and real-time chat.",
     image: "/talentflow.png",
     tech: ["Next.js", "TypeScript", "Tailwind", "PostgreSQL"],
-    link: "#",
-    github: "#",
+    link: "https://talentflow-udz7.onrender.com/",
+    github: "https://github.com/termuze0/TalentFlow",
   },
   {
-    id: 3,
+    id: 5,
     title: "TLearn — Learning Management System",
     description:
       "A modern LMS built with React and Laravel, allowing instructors to manage courses, track progress, and engage learners effectively.",
     image: "/tlearn.png",
     tech: ["React", "Laravel", "JWT", "MySQL"],
-    link: "#",
-    github: "#",
+    link: "https://tlearn-7337d56db-termuzes-projects.vercel.app/",
+    github: "https://github.com/termuze0/lms/",
   },
+
 ];
 
 export default function ProjectSection() {
